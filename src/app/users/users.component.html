@@ -1,0 +1,10 @@
+<div style="display: flex;" class="row">
+    <div class="card col-5" style="width: 18rem; margin: 30px;" *ngFor="let u of UsersList">
+        <img class="card-img-top" [src]="image" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{u.name}}</h5>
+          <p class="card-text"> User Name: {{u.username}} </p>
+          <p class="card-text"> Email: {{u.email}}</p> 
+        </div>
+      </div>
+      </div>

@@ -1,0 +1,23 @@
+<p>discount works!</p>
+<hr>
+<table class="table">
+    <tr *ngFor="let p of products" >  <!-- *ngIf="p.Discount =='NoDiscount'"> -->
+     <div  *ngIf="p.Discount!='NoDiscount'">
+      
+             <tr>
+                 <th>Name &nbsp;</th>
+                 <th>Quantity &nbsp;</th>
+                 <th>Price &nbsp;</th>
+                 <th>Discount &nbsp;</th>
+                 <th>Image &nbsp;</th>
+                </tr>
+     <td >{{p.name}} &nbsp;</td>
+     <td>{{p.quantity}} &nbsp;</td>
+     <td>{{p.price}} &nbsp;</td> 
+     <td>{{p.Discount}} &nbsp;</td> 
+     <td> <img src="{{p.img}}" alt="" width="100px" height="100px"></td>
+    
+     </div>
+    </tr>
+ </table>
+ 

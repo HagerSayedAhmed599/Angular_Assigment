@@ -1,0 +1,21 @@
+<div class="container">
+    <form class="form" #login="ngForm" novalidate (ngSubmit)="Login()">
+        <div class="form-group">
+          <label for="userName">User Name:</label>
+          <input type="text" id="userName" required pattern="^[A-Za-z]+$" #userName="ngModel" [class.is-invalid]="userName.invalid && userName.touched" name="txtName" [(ngModel)]="user.userName" class="form-control">
+          <div *ngIf="userName.errors && userName.touched">
+            <small class="text-danger" *ngIf="userName.errors['required']"> User Name required</small>
+            <small class="text-danger" *ngIf="userName.errors['pattern']"> User Name must contain capital and small characters</small>
+           </div>
+        </div>
+        <div class="form-group">
+            <label for="pass">Password :</label>
+            <input type="password" id="pass" class="form-control" #pass="ngModel" [class.is-invalid]="pass.invalid && pass.touched" name="Password" required [(ngModel)]="user.password">
+            <div *ngIf="pass.errors && pass.touched">
+              <small class="text-danger" *ngIf="pass.errors['required']"> Password required</small>
+             </div>
+          </div>
+          <br>
+          <input type="submit" value="Login" [style.background]="login.invalid? 'red':'green'" [disabled]="login.invalid" class="btn btn-success">
+    </form>
+</div>

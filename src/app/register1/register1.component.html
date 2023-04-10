@@ -1,0 +1,47 @@
+<p>register1 works!</p>
+<div class="container">
+    <form class="form" #register="ngForm" novalidate (ngSubmit)="submitData()">
+      {{register.value |json}}
+      <div class="form-group">
+        <label for="userName">User Name :</label>
+        <input id="userName" pattern="^[A-Za-z]+$" #userName="ngModel" required [class.is-invalid]="userName.invalid && userName.touched" name="txtName"  [(ngModel)]="user.userName" class="form-control" ><!-- required [class.is-invalid]="userName.invalid&& userName.touched" --> 
+        <div *ngIf="userName.errors && userName.touched">
+         <small class="text-danger" *ngIf="userName.errors['required']"> User Name required</small>
+         <small class="text-danger" *ngIf="userName.errors['pattern']"> User Name must contain capital and small characters</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email :</label>
+        <input id="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="Email" required  #email="ngModel" [(ngModel)]="user.email">
+        <div *ngIf="email.errors && email.touched">
+          <small class="text-danger" *ngIf="email.errors['required']"> Email required</small>
+          <small class="text-danger" *ngIf="email.errors['pattern']"> Email must contain @</small>
+         </div>
+      </div>
+      <div class="form-group">
+        <label for="pass">Password :</label>
+        <input type="password" id="pass" class="form-control" #pass="ngModel" [class.is-invalid]="pass.invalid && pass.touched" name="Password" required [(ngModel)]="user.password">
+        <div *ngIf="pass.errors && pass.touched">
+          <small class="text-danger" *ngIf="pass.errors['required']"> Password required</small>
+         </div>
+      </div>
+      <div class="form-group">
+        <label for="confirmPass">confirm Password :</label>
+        <input  type="password" id="confirmPass" class="form-control" #confirmPass="ngModel" [class.is-invalid]="confirmPass.invalid && confirmPass.touched" name="confirmPassword" required [(ngModel)]="user.confirmPass">
+        <div *ngIf="confirmPass.errors && confirmPass.touched">
+          <small class="text-danger" *ngIf="confirmPass.errors['required']"> Confirm Password required</small>
+         </div>
+         <small class="text-danger" *ngIf="confirmPass.value!=pass.value"> Confirm Password not match the Password</small>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="">Applications: </label>
+        <br>
+      <select class="custom-select" required [(ngModel)]="user.applications" name="applications">
+        <option *ngFor="let a of Applications">{{a}}</option>
+      </select>
+      </div>
+      <br>
+      <input type="submit" value="Register" [style.background]="register.invalid? 'red':'green'" [disabled]="register.invalid" class="btn btn-success">
+    </form>
+</div>

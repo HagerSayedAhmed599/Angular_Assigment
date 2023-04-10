@@ -1,0 +1,97 @@
+<div style="text-align: center;">
+<h1>{{storeName}}</h1>
+<img [src]="StoreLogo" width="60%" height="350px">
+<h3 *ngIf="Discount !='NoDiscount'">We offer an explicit discount of: {{Discount | percent}}</h3>
+</div>
+<hr>
+<div style="padding: 20px;">
+<h3>Categories: </h3>
+<select >
+    <option  *ngFor="let c of CategoryList">{{c.name}}</option>
+</select>
+<br>
+<br>
+<label for="">Client Name: </label>
+<input type="text" [(ngModel)]="clientName">
+{{clientName}}
+<br>
+<br>
+<h3>Products: </h3>
+<ng-template #tableProducts>
+<!-- <table class="table">
+    <tr>
+        <th >Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Image</th>
+       </tr>
+   <tr *ngFor="let p of ProductList" >
+    <td >{{p.name}}</td>
+    <td>{{p.quantity}}</td>
+    <td>{{p.price}}</td>
+    <td> <img src="{{p.img}}" alt="" width="100px" height="100px"></td>
+   </tr>
+</table> -->
+<div style="display: flex;">
+<div class="card divCard" style="width: 18rem; margin-left: 20px;" *ngFor="let p of ProductList">
+    <img class="card-img-top" src="{{p.img}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{p.name}}</h5>
+      <p class="card-text">Quantity: {{p.quantity}} , Price: {{p.price}}</p>
+    </div>
+  </div>
+  </div>
+</ng-template>
+
+<br>
+<div *ngIf="IsPurshased; then Purshasing; else tableProducts">
+
+</div>
+<button class="btn btn-success" (click)="ShowDiv()" style="margin-left: 40%;margin-top: 5%;width: 300px;"> Buy</button>
+</div>
+<br>
+<ng-template #Purshasing>
+  <h6>Thanks for purchasing from our Store {{clientName}}</h6>
+</ng-template>
+<br>
+<h3>Pipes: a)</h3>
+<h5>{{storeName | uppercase}}</h5>
+<hr>
+<h3>Pipes: b)</h3>
+<h5>{{Discount | percent}}</h5>
+<hr>
+<h3>Day3 Part 2</h3>
+<h5>GetAllProducts()</h5>
+ <table class="table">
+    <tr>
+        <th >Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Image</th>
+       </tr>
+   <tr *ngFor="let p of ProductList1" >
+    <td >{{p.name}}</td>
+    <td>{{p.quantity}}</td>
+    <td>{{p.price}}</td>
+    <td> <img src="{{p.img}}" alt="" width="100px" height="100px"></td>
+   </tr>
+</table> 
+<hr>
+<hr>
+<h3>Day3 Part 2</h3>
+<h5>GetProductById(prdId)</h5>
+ <table class="table">
+    <tr>
+        <th >Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Image</th>
+       </tr>
+   <tr>
+    <td>{{product.name}}</td>
+  <!--   <td>{{product.quantity}}</td>
+    <td>{{product.price}}</td>
+    <td> <img src="{{product.img}}" alt="" width="100px" height="100px"></td -->
+   </tr>
+</table> 
+<hr>

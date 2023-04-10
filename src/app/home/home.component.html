@@ -1,0 +1,17 @@
+<p>home works!</p>
+<app-products></app-products>
+<button (click)="Data()" class="btn btn-success">Get All Products</button>
+<table class="table">
+    <tr>
+        <th >Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Image</th>
+       </tr>
+   <tr *ngFor="let p of list" >
+    <td >{{p.name}}</td>
+    <td>{{p.quantity}}</td>
+    <td>{{p.price}}</td>
+    <td> <img src="{{p.img}}" alt="" width="100px" height="100px"></td>
+   </tr>
+</table>

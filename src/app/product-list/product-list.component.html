@@ -1,0 +1,18 @@
+<p>product-list works!</p>
+<table class="table">
+    <tr>
+        <th >Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Image</th>
+       </tr>
+   <tr *ngFor="let p of ProductList" >
+    <td >{{p.name}}</td>
+    <td>{{p.quantity}}</td>
+    <td>{{p.price}}</td>
+    <td> <img src="{{p.img}}" alt="" width="100px" height="100px"></td>
+   </tr>
+</table>
+<button (click)="discountPage()" style="margin-right: 20px;" class="btn btn-success">Discount</button>
+<button (click)="noDiscountPage()" class="btn btn-success">No Discount</button>
+<router-outlet></router-outlet>

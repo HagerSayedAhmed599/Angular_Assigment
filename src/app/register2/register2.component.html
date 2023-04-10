@@ -1,0 +1,47 @@
+<p>register2 works!</p>
+<div class="container">
+    <form class="form" [formGroup]="registerForm" (ngSubmit)="submitData()">
+      <div class="form-group">
+        <label for="userName">User Name :</label>
+        <!-- pattern="^[A-Za-z]+$" -->
+        <input id="userName" formControlName="userName"  [class.is-invalid]="getUserName?.invalid && getUserName?.touched" name="txtName"  class="form-control" ><!-- required [class.is-invalid]="userName.invalid&& userName.touched" --> 
+        <!-- <div *ngIf="getUserName?.invalid && getUserName?.touched"> -->
+         <small class="text-danger" *ngIf="getUserName?.invalid && getUserName?.touched"> User Name required</small>
+         <!-- <small class="text-danger" *ngIf="userName.errors['pattern']"> User Name must contain capital and small characters</small> -->
+       <!--  </div> -->
+      </div>
+      <div class="form-group">
+        <label for="email">Email :</label>
+        <input id="email" type="email" formControlName="email" class="form-control" name="Email" [class.is-invalid]="getEmail?.invalid && getEmail?.touched">
+        <!-- <div *ngIf="email.errors && email.touched"> -->
+          <small class="text-danger" *ngIf="getEmail?.invalid && getEmail?.touched"> Email required</small>
+         <!--  <small class="text-danger" *ngIf="email.errors['pattern']"> Email must contain @</small> -->
+         <!-- </div> -->
+      </div>
+      <div class="form-group">
+        <label for="pass">Password :</label>
+        <input type="password" formControlName="password" id="pass" class="form-control" [class.is-invalid]="getPassword?.invalid && getPassword?.touched" name="Password" >
+        <div *ngIf="getPassword?.invalid && getPassword?.touched">
+          <small class="text-danger" *ngIf="getPassword?.invalid && getPassword?.touched"> Password required</small>
+         </div>
+      </div>
+      <div class="form-group">
+        <label for="confirmPass">confirm Password :</label>
+        <input  type="password" formControlName="confirmPassword" id="confirmPass" class="form-control" [class.is-invalid]="getConfirmPass?.invalid && getConfirmPass?.touched" name="confirmPassword" >
+        <!-- <div *ngIf="getConfirmPass?.invalid && getConfirmPass?.touched">
+          <small class="text-danger" *ngIf="getConfirmPass?.invalid && getConfirmPass?.touched"> Confirm Password required</small> -->
+          <small class="text-danger" *ngIf="registerForm.errors?.['misMatch']"> Confirm Password not match the Password</small>
+         <!-- </div> -->
+        </div>
+      <br>
+      <div class="form-group">
+        <label for="">Applications: </label>
+        <br>
+      <select class="custom-select" required [(ngModel)]="user.applications" name="applications">
+        <option *ngFor="let a of Applications">{{a}}</option>
+      </select>
+      </div>
+      <br>
+      <input type="submit" value="Register" class="btn btn-success">
+    </form>
+</div>

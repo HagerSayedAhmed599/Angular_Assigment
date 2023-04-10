@@ -1,0 +1,78 @@
+<!-- <app-header></app-header> -->
+<!-- <app-firstapp></app-firstapp> -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav"> 
+      <ul class="navbar-nav" style="margin-top: 20px;">
+        <li class="nav-item">
+          <a class="nav-link" href="#"><img [src]="imgStar" width="60px" height="50px"/></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Home </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/products" routerLinkActive="active">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"routerLink="/posts" routerLinkActive="active">Posts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"routerLink="/register1" routerLinkActive="active">Register For TDF</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"routerLink="/login1" routerLinkActive="active">Login For TDF</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"routerLink="/register2" routerLinkActive="active">Register For RF</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"routerLink="/login2" routerLinkActive="active">Login For RF</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"routerLink="/notes" routerLinkActive="active">Notes</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <router-outlet></router-outlet> 
+  <!-- <button (click)="Data()">Data</button>
+  <table class="table">
+    <tr>
+        <th >Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Image</th>
+       </tr>
+   <tr *ngFor="let p of list" >
+    <td >{{p.name}}</td>
+    <td>{{p.quantity}}</td>
+    <td>{{p.price}}</td>
+    <td> <img src="{{p.img}}" alt="" width="100px" height="100px"></td>
+   </tr>
+</table>
+<hr>  -->
+<!--   <app-products ></app-products>
+<button (click)="Data()">Data</button>
+<table class="table">
+    <tr>
+        <th >Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Image</th>
+       </tr>
+   <tr *ngFor="let p of list" >
+    <td >{{p.name}}</td>
+    <td>{{p.quantity}}</td>
+    <td>{{p.price}}</td>
+    <td> <img src="{{p.img}}" alt="" width="100px" height="100px"></td>
+   </tr>
+</table> -->
+<hr> 
+<app-parent></app-parent> 
+<app-footer></app-footer>

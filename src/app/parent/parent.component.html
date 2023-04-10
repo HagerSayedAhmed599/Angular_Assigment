@@ -1,0 +1,16 @@
+<p>parent works!</p>
+ <table class="table">
+    <tr>
+        <th >Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Image</th>
+       </tr>
+   <tr *ngFor="let p of productList1" >
+    <td >{{p.name}}</td>
+    <td>{{p.quantity}}</td>
+    <td>{{p.price}}</td>
+    <td> <img src="{{p.img}}" alt="" width="100px" height="100px"></td>
+   </tr>
+</table> 
+<app-child (sentToParent)="productList1=$event"></app-child>
